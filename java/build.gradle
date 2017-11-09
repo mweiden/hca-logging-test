@@ -1,0 +1,24 @@
+apply plugin: 'java'
+
+repositories {
+   mavenCentral()
+    maven {
+      url "https://files.boxfuse.com"
+    }
+}
+
+dependencies {
+    compile 'com.boxfuse.cloudwatchlogs:cloudwatchlogs-java-appender:1.1.6.49'
+    compile 'org.apache.logging.log4j:log4j-core:2.9.1'
+}
+
+jar {
+    from {
+        (configurations.runtime).collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+    manifest {
+        attributes("Main-Class": "org.humancellatlas.loggingtest.Application" )
+    }
+}

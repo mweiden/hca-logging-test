@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -x
+
+source environment
+
+java \
+  -Dlog4j.configurationFile=file://`pwd`/log4j2.xml \
+  -jar build/libs/java.jar

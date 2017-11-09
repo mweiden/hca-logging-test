@@ -24,6 +24,8 @@ lib64/
 parts/
 sdist/
 var/
+build/
+.gradle
 wheels/
 *.egg-info/
 .installed.cfg
@@ -106,3 +108,6 @@ ENV/
 
 # vim
 tags
+
+# development / building
+.idea
