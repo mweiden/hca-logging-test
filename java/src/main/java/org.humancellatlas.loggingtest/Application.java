@@ -2,7 +2,6 @@ package org.humancellatlas.loggingtest;
 
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
-import com.boxfuse.cloudwatchlogs.internal.CloudwatchLogsLogEventPutter
 
 import java.util.Random;
 
