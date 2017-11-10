@@ -2,14 +2,19 @@ apply plugin: 'java'
 
 repositories {
    mavenCentral()
-    maven {
-      url "https://files.boxfuse.com"
-    }
+   maven {
+     url "https://oss.sonatype.org/content/repositories/snapshots"
+   }
 }
 
 dependencies {
-    compile 'com.boxfuse.cloudwatchlogs:cloudwatchlogs-java-appender:1.1.6.49'
-    compile 'org.apache.logging.log4j:log4j-core:2.9.1'
+    // TODO (matt): shouldn't depend on fork https://github.com/WriskHQ/logback-ext/tree/master/logback-ext-cloudwatch-appender
+    compile 'co.wrisk.logback:logback-ext-cloudwatch-appender:1.0.9'
+    compile 'co.wrisk.logback:logback-ext-jackson:1.0.9'
+    compile 'ch.qos.logback:logback-core:1.2.3'
+    compile 'org.slf4j:slf4j-api:1.7.25'
+    compile 'com.amazonaws:aws-java-sdk-logs:1.11.35'
+    compile 'com.google.guava:guava:18.0'
 }
 
 jar {
@@ -21,4 +26,8 @@ jar {
     manifest {
         attributes("Main-Class": "org.humancellatlas.loggingtest.Application" )
     }
+}
+
+task getHomeDir << {
+    println gradle.gradleHomeDir
 }

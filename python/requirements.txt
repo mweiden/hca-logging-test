@@ -1,1 +1,1 @@
-watchtower >= 0.4.1
+watchtower >= 0.5.2

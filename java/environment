@@ -1,4 +1,5 @@
 set -a
-AWS_REGION='us-east-1'
-BOXFUSE_CLOUDWATCHLOGS_ENDPOINT='https://logs.us-east-1.amazonaws.com'
+AWS_REGION=us-east-1
+AWS_LOG_GROUP=hca-logging-test
+AWS_LOG_STREAM=hca-logging-test/stream
 set +a

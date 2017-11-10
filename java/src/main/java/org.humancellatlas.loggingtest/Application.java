@@ -1,13 +1,15 @@
 package org.humancellatlas.loggingtest;
 
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import org.eluder.logback.ext.cloudwatch.appender.CloudWatchAppender;
 
 import java.util.Random;
 
 class Application {
 
-    static Logger log = LogManager.getLogger(Application.class.getName());
+    static Logger log = LoggerFactory.getLogger(Application.class.getName());
 
     static String[] gripes = {
             "My back hurts.",
