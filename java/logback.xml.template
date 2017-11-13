@@ -4,16 +4,16 @@
     <appender name="CLOUDWATCH" class="com.j256.cloudwatchlogbackappender.CloudWatchAppender">
         <region>$AWS_REGION</region>
         <logGroup>$AWS_LOG_GROUP</logGroup>
-        <logStream>$AWS_LOG_STREAM</logStream>
+        <logStream>$AWS_LOG_STREAM/java</logStream>
         <layout>
             <pattern>%-5level%date{yyyy-MM-dd'T'HH:mm:ss.SSS} [%thread] %c{1.} - %msg%n</pattern>
         </layout>
     </appender>
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-        <layout>
+        <encoder>
             <pattern>%-5level%date{yyyy-MM-dd'T'HH:mm:ss.SSS} [%thread] %c{1.} - %msg%n</pattern>
-        </layout>
+        </encoder>
     </appender>
 
     <root level="INFO">

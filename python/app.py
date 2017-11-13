@@ -2,10 +2,14 @@ import watchtower
 import logging
 import time
 import random
+import os
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-watchtowerHandler = watchtower.CloudWatchLogHandler()
+watchtowerHandler = watchtower.CloudWatchLogHandler(
+    log_group=os.environ["AWS_LOG_GROUP"],
+    stream_name=os.environ["AWS_LOG_STREAM"] + "/python",
+)
 logger.addHandler(watchtowerHandler)
 
 gripes = [
@@ -22,4 +26,4 @@ logger.info(f"Logging to log group \"{watchtowerHandler.log_group}\".")
 
 while True:
     logger.info(random.choice(gripes))
-    time.sleep(5)
+    time.sleep(0.5)

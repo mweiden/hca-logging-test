@@ -25,7 +25,7 @@ class Application {
             log.info(
                     gripes[randomizer.nextInt(gripes.length)]
             );
-            Thread.sleep(5000);
+            Thread.sleep(500);
         }
     }
 }
