@@ -1,14 +1,13 @@
 package org.humancellatlas.loggingtest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.Random;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 
 class Application {
 
-    static Logger logger = LogManager.getLogger(Application.class.getName());
+    static Logger log = LoggerFactory.getLogger(Application.class.getName());
 
     static String[] gripes = {
             "My back hurts.",
@@ -23,7 +22,7 @@ class Application {
     public static void main(String[] args) throws java.lang.InterruptedException {
         Random randomizer = new Random();
         while (true) {
-            logger.info(
+            log.info(
                     gripes[randomizer.nextInt(gripes.length)]
             );
             Thread.sleep(500);
