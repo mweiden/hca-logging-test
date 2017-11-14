@@ -1,17 +1,3 @@
 #!/usr/bin/env bash
 
-source ../environment
-
-LOG_CONFIGURATION=/tmp/logback.xml
-
-cat logback.xml.template | envsubst '$AWS_REGION $AWS_LOG_GROUP $AWS_LOG_STREAM' > ${LOG_CONFIGURATION}
-
-echo "LOG CONFIGURATION"
-cat ${LOG_CONFIGURATION}
-echo "END LOG CONFIGURATION"
-
-trap "rm ${LOG_CONFIGURATION}" EXIT
-
-java \
-  -Dlogback.configurationFile=file://${LOG_CONFIGURATION} \
-  -jar build/libs/java.jar
+java -jar target/hca-logging-test-0.0.0.jar
