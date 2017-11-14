@@ -1,4 +1,4 @@
 default: package
 
 package:
-	mvn package
+	gradle build
